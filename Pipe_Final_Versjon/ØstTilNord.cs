@@ -13,6 +13,10 @@ namespace Pipe_Final_Versjon
         public bool Sør => false;
         public bool Vest => false;
         public bool Øst => true;
-
+        public bool sammenkobling()
+        {
+            return Nord && Øst;
+        }
     }
+   
 }

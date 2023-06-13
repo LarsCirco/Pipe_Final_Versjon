@@ -10,5 +10,11 @@ var board = new Brett();
 
 while (true)
 {
-    string
+    Console.WriteLine("Skriv inn index");
+    var inputIndex = Console.ReadLine();
+    Console.WriteLine("Skriv inn rettning");
+    var inputDirection = Console.ReadLine();
+    board.userInput(inputIndex,inputDirection);
+
+
 }

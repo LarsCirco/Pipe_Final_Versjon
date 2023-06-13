@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,9 +29,10 @@ namespace Pipe_Final_Versjon
         public void DrawBoard()
         {
             int count = 0;
+            string padding = new string(' ', 2);
             foreach (var pipe in Pipes)
             {
-                Console.Write(pipe.Symbol + "  ");
+                Console.Write(padding+pipe.Symbol + " ");
                 count++;
                 if (count % 10 == 0)
                 {Console.WriteLine(" ");}
@@ -51,11 +53,11 @@ namespace Pipe_Final_Versjon
             }
         }
 
-        public void userInput(string input, string direction)
+        public void userInput (string input, string direction)
         {
-            var index = int.TryParse(input);
-
+            int.TryParse(input, out int index);
             Pipes[index] = new NordPipe();
+            DrawBoard();
         }
      
     }
