@@ -14,9 +14,11 @@ namespace Pipe_Final_Versjon
         public bool Vest => false;
         public bool Øst => false;
 
-        public bool sammenkobling()
+        public bool sammenkobling(IPipe naboPipe)
         {
-            return Nord && Sør;
+            if (Nord && naboPipe.Sør || Sør && naboPipe.Nord)
+                return true;
+            else return false;
         }
 
     }

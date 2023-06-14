@@ -17,7 +17,7 @@ namespace Pipe_Final_Versjon
 
     bool Øst { get; }
 
-    bool sammenkobling();
+    bool sammenkobling(IPipe naboPipe);
 
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pipe_Final_Versjon
 {
-    internal class ØstPipe : IPipe
+    internal class ØstPipe 
     {
         public string Symbol => "━";
         public bool Nord => false;

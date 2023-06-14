@@ -40,14 +40,13 @@ namespace Pipe_Final_Versjon
         }
         private IPipe RandomPipe()
         {
-            int tilfeldig = random.Next(3);
+            int tilfeldig = random.Next(2);
             switch (tilfeldig)
             {
                 case 0:
                     return new NordPipe();
+              
                 case 1:
-                    return new ØstPipe();
-                case 2:
                     return new ØstTilNord();
                 default: throw new InvalidOperationException("invalid");
             }
