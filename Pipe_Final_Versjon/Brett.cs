@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Pipe_Final_Versjon
@@ -11,6 +12,8 @@ namespace Pipe_Final_Versjon
     {
         private Random random = new Random();
         public List<IPipe> Pipes { get; set; } = new List<IPipe>();
+        private int start = 0;
+        private int end;
 
         public Brett()
         {
@@ -58,6 +61,28 @@ namespace Pipe_Final_Versjon
             Pipes[index] = new NordPipe();
             DrawBoard();
         }
-     
+
+        public bool Kobling()
+        {
+            for (int i = 0; i < Pipes.Count; i++)
+            {
+                int nord = i - 10;
+                int sør = i + 10;
+                int øst = i + 1;
+                int vest = i - 1;
+                bool nord = false, sør = false, vest = false, øst = false;
+
+                if (nord >= 0 && !Pipes[i].sammenkobling(Pipes[nord]))
+                    return false;
+                if (sør < Pipes.Count && !Pipes[i].sammenkobling(Pipes[sør]))
+                    return false;
+                if (vest >= 0 && i % 10 != 0 && !Pipes[i].sammenkobling(Pipes[vest])) 
+                    return false;
+                if (øst < Pipes.Count && (i + 1) % 10 != 0 && !Pipes[i].sammenkobling(Pipes[øst])) 
+                    return false;
+            }
+            return true; 
+        }
+        
     }
 }

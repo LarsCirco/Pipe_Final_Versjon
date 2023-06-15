@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace Pipe_Final_Versjon
 {
+    public enum TypeKobling
+    {
+        Nord,
+        Sør,
+        Vest,
+        Øst
+    };
     internal interface IPipe
 
     {
